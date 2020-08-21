@@ -10,10 +10,6 @@ import com.droidafricana.cleanarchitecturecrypto.R
 
 class CoinsFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = CoinsFragment()
-    }
-
     private lateinit var viewModel: CoinsViewModel
 
     override fun onCreateView(
