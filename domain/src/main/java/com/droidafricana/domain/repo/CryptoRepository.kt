@@ -1,4 +1,4 @@
-package com.droidafricana.domain.data
+package com.droidafricana.domain.repo
 
 class CryptoRepository(private val cryptoDataSource: CryptoDataSource) {
 

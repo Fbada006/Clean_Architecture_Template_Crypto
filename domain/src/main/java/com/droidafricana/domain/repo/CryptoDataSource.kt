@@ -1,4 +1,4 @@
-package com.droidafricana.domain.data
+package com.droidafricana.domain.repo
 
 import com.droidafricana.domain.models.CryptoResult
 import kotlinx.coroutines.flow.Flow
