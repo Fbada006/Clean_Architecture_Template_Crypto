@@ -1,8 +1,8 @@
 package com.droidafricana.domain.usecases
 
-import com.droidafricana.domain.repo.CryptoRepository
+import com.droidafricana.domain.repo.ICryptoDataRepository
 
-class GetAllCoinsUseCase(private val cryptoRepository: CryptoRepository) {
+class GetAllCoinsUseCase(private val iCryptoDataRepository: ICryptoDataRepository) {
 
-    suspend operator fun invoke() = cryptoRepository.getAllCoins()
+    suspend operator fun invoke() = iCryptoDataRepository.getCoins()
 }

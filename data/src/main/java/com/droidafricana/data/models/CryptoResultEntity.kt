@@ -1,3 +1,5 @@
 package com.droidafricana.data.models
 
-class CryptoResultEntity : ArrayList<CryptoEntity>()
+data class CryptoResultEntity(
+    val cryptoList: ArrayList<CryptoEntity>
+)
