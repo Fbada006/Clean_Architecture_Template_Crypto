@@ -10,10 +10,8 @@ import kotlinx.coroutines.flow.map
 class CryptoRepository(private val cryptoSource: CryptoSource) : ICryptoDataRepository {
 
     override suspend fun getCoins(): Flow<List<Crypto>> {
-        return cryptoSource.getAllCoins().map { list ->
-            list.map {
-                it.toDomain()
-            }
+        return cryptoSource.getAllCoins().map { cryptoList ->
+            cryptoList.map { it.toDomain() }
         }
     }
 }
