@@ -13,7 +13,8 @@ class CoinsFragment : Fragment() {
     private lateinit var viewModel: CoinsViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.coins_fragment, container, false)
