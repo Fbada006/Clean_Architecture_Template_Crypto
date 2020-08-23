@@ -19,5 +19,4 @@ class CoinsFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.coins_fragment, container, false)
     }
-
 }
