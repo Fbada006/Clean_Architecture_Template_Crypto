@@ -6,8 +6,10 @@ import com.droidafricana.domain.models.Crypto
 import com.droidafricana.domain.repo.ICryptoDataRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class CryptoRepository(private val cryptoSource: CryptoSource) : ICryptoDataRepository {
+class CryptoRepository @Inject constructor(private val cryptoSource: CryptoSource) :
+    ICryptoDataRepository {
 
     override suspend fun getCoins(): Flow<List<Crypto>> {
         return cryptoSource.getAllCoins().map { cryptoList ->
