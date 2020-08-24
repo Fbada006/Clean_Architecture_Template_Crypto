@@ -13,7 +13,7 @@ import com.droidafricana.domain.usecases.GetAllCoinsUseCase
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class CoinsViewModel @ViewModelInject constructor(
+class CryptoViewModel @ViewModelInject constructor(
     private val getAllCoinsUseCase: GetAllCoinsUseCase
 ) : UiViewModel() {
 
