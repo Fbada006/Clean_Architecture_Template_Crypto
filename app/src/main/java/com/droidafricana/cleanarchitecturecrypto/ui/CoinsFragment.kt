@@ -54,7 +54,7 @@ class CoinsFragment : Fragment(R.layout.coins_fragment) {
                 }
                 is Error -> {
                     // TODO
-                    Timber.e("Error ----------")
+                    Timber.e("Error ---------- ${it.error}")
                 }
             }
         })

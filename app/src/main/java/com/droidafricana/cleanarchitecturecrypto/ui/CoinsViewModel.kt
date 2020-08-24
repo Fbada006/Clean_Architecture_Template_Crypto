@@ -30,12 +30,6 @@ class CoinsViewModel @ViewModelInject constructor(
                     crypto.toUiModel()
                 }
                 _uiState.value = Success
-//                if (it != null) {
-//                    _cryptoList.value = it.map { crypto ->
-//                        crypto.toUiModel()
-//                    }
-//                    _uiState.value = Success
-//                } else _uiState.value = Error(Exception("Houston, we have a problem!"))
             }
         }
     }
