@@ -1,0 +1,27 @@
+[
+  {
+    "id": "0-5x-long-algorand-token",
+    "symbol": "algohalf",
+    "name": "0.5X Long Algorand Token"
+  },
+  {
+    "id": "0-5x-long-altcoin-index-token",
+    "symbol": "althalf",
+    "name": "0.5X Long Altcoin Index Token"
+  },
+  {
+    "id": "0-5x-long-balancer-token",
+    "symbol": "balhalf",
+    "name": "0.5X Long Balancer Token"
+  },
+  {
+    "id": "0-5x-long-bilibra-token",
+    "symbol": "trybhalf",
+    "name": "0.5X Long BiLira Token"
+  },
+  {
+    "id": "0-5x-long-bitcoin-cash-token",
+    "symbol": "bchhalf",
+    "name": "0.5X Long Bitcoin Cash Token"
+  }
+]

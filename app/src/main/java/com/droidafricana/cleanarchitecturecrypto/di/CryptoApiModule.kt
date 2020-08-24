@@ -1,9 +1,11 @@
 package com.droidafricana.cleanarchitecturecrypto.di
 
 import com.droidafricana.data.api.CryptoApiService
+import com.droidafricana.data.api.HttpClient
+import com.droidafricana.data.api.LoggingInterceptor
+import com.droidafricana.data.api.MoshiCreator
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,7 +14,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import java.util.concurrent.TimeUnit
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -21,17 +22,11 @@ import javax.inject.Singleton
 class CryptoApiModule {
 
     @Provides
-    fun provideLoggingInterceptor() = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
-    }
+    fun provideLoggingInterceptor() = LoggingInterceptor.create()
 
     @Provides
     fun provideOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor) =
-        OkHttpClient.Builder()
-            .addInterceptor(httpLoggingInterceptor)
-            .connectTimeout(5, TimeUnit.SECONDS)
-            .readTimeout(5, TimeUnit.SECONDS)
-            .build()
+        HttpClient.create(httpLoggingInterceptor)
 
     @Singleton
     @Provides
@@ -40,9 +35,7 @@ class CryptoApiModule {
 
     @Singleton
     @Provides
-    fun provideMoshi() = Moshi.Builder()
-        .add(KotlinJsonAdapterFactory())
-        .build()
+    fun provideMoshi(): Moshi = MoshiCreator.create()
 
     @Singleton
     @Provides

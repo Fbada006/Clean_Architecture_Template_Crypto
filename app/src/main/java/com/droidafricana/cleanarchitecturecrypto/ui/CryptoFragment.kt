@@ -13,9 +13,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.coins_fragment.*
 
 @AndroidEntryPoint
-class CoinsFragment : Fragment(R.layout.coins_fragment) {
+class CryptoFragment : Fragment(R.layout.coins_fragment) {
 
-    private val viewModel: CoinsViewModel by viewModels()
+    private val viewModel: CryptoViewModel by viewModels()
 
     private lateinit var cryptoAdapter: CryptoAdapter
 
