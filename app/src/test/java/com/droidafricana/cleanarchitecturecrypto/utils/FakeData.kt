@@ -7,7 +7,7 @@ val fakeCryptos = listOf(
     CryptoUiModel(randomString(), randomString(), randomString()),
     CryptoUiModel(randomString(), randomString(), randomString()),
     CryptoUiModel(randomString(), randomString(), randomString()),
-    CryptoUiModel(randomString(), randomString(), randomString()),
+    CryptoUiModel(randomString(), randomString(), randomString())
 )
 
 fun randomString() = java.util.UUID.randomUUID().toString()
