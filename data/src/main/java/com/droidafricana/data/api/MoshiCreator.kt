@@ -5,7 +5,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
 object MoshiCreator {
 
-    fun create() = Moshi.Builder()
+    fun create(): Moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
         .build()
 }
