@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface ICryptoDataRepository {
 
-    suspend fun getCoins(): Flow<List<Crypto>>
+    suspend fun getCoins(): Flow<List<Crypto>?>
 }
