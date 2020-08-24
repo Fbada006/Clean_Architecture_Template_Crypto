@@ -48,6 +48,12 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     implementation "androidx.fragment:fragment-ktx:1.2.5"
 
+    //CardView
+    implementation "androidx.cardview:cardview:1.0.0"
+
+    //Recyclerview
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+
     //Fragment
     implementation "androidx.fragment:fragment-ktx:1.2.5"
 

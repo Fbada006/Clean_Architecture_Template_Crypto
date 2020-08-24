@@ -18,16 +18,16 @@ class CoinsFragment : Fragment(R.layout.coins_fragment) {
 
     private val viewModel: CoinsViewModel by viewModels()
 
-    private lateinit var adapter: CryptoAdapter
+    private lateinit var cryptoAdapter: CryptoAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = CryptoAdapter()
+        cryptoAdapter = CryptoAdapter()
 
         crypto_list.apply {
-            this.adapter = adapter
-            layoutManager = LinearLayoutManager(context)
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            this.adapter = cryptoAdapter
         }
 
         viewModel.getAllCoins()
@@ -38,7 +38,7 @@ class CoinsFragment : Fragment(R.layout.coins_fragment) {
     private fun observeCryptoList() {
         viewModel.cryptoList.observe(viewLifecycleOwner, {
             Timber.e("List from API - $it")
-            adapter.submitList(it)
+            cryptoAdapter.submitList(it)
         })
     }
 
