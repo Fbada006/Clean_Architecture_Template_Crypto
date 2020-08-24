@@ -43,16 +43,25 @@ class CoinsFragment : Fragment(R.layout.coins_fragment) {
     private fun observeUiState() {
         viewModel.uiState.observe(viewLifecycleOwner, {
             when (it) {
-                is Loading -> {
-                    // TODO
-                }
-                is Success -> {
-                    // TODO
-                }
-                is Error -> {
-                    // TODO
-                }
+                is Loading -> showLoading()
+                is Success -> showCryptoData()
+                is Error -> showError()
             }
         })
+    }
+
+    private fun showLoading() {
+        loading_spinner.visibility = View.VISIBLE
+        tv_error.visibility = View.GONE
+    }
+
+    private fun showError() {
+        tv_error.visibility = View.VISIBLE
+        loading_spinner.visibility = View.GONE
+    }
+
+    private fun showCryptoData() {
+        loading_spinner.visibility = View.GONE
+        tv_error.visibility = View.GONE
     }
 }
