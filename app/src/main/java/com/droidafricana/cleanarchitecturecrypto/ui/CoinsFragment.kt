@@ -11,7 +11,6 @@ import com.droidafricana.cleanarchitecturecrypto.utils.Loading
 import com.droidafricana.cleanarchitecturecrypto.utils.Success
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.coins_fragment.*
-import timber.log.Timber
 
 @AndroidEntryPoint
 class CoinsFragment : Fragment(R.layout.coins_fragment) {
@@ -37,7 +36,6 @@ class CoinsFragment : Fragment(R.layout.coins_fragment) {
 
     private fun observeCryptoList() {
         viewModel.cryptoList.observe(viewLifecycleOwner, {
-            Timber.e("List from API - $it")
             cryptoAdapter.submitList(it)
         })
     }
@@ -47,15 +45,12 @@ class CoinsFragment : Fragment(R.layout.coins_fragment) {
             when (it) {
                 is Loading -> {
                     // TODO
-                    Timber.e("Loading ----------")
                 }
                 is Success -> {
                     // TODO
-                    Timber.e("Success ----------")
                 }
                 is Error -> {
                     // TODO
-                    Timber.e("Error ---------- ${it.error}")
                 }
             }
         })
