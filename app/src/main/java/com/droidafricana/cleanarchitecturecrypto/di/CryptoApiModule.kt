@@ -1,8 +1,6 @@
 package com.droidafricana.cleanarchitecturecrypto.di
 
 import com.droidafricana.data.api.CryptoApiService
-import com.droidafricana.data.api.HttpClient
-import com.droidafricana.data.api.LoggingInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,6 +9,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.util.concurrent.TimeUnit
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -19,11 +18,17 @@ import javax.inject.Singleton
 class CryptoApiModule {
 
     @Provides
-    fun provideLoggingInterceptor() = LoggingInterceptor.create()
+    fun provideLoggingInterceptor() = HttpLoggingInterceptor().apply {
+        level = HttpLoggingInterceptor.Level.BODY
+    }
 
     @Provides
     fun provideOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor) =
-        HttpClient.create(httpLoggingInterceptor)
+        OkHttpClient.Builder()
+            .addInterceptor(httpLoggingInterceptor)
+            .connectTimeout(5, TimeUnit.SECONDS)
+            .readTimeout(5, TimeUnit.SECONDS)
+            .build()
 
     @Singleton
     @Provides
@@ -45,5 +50,5 @@ class CryptoApiModule {
 
     @Provides
     @Named("baseUrl")
-    fun provideBaseUrl(): String = "https://api.coingecko.com/api/v3/coins"
+    fun provideBaseUrl(): String = "https://api.coingecko.com/api/v3/coins/"
 }

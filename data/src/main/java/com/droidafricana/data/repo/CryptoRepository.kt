@@ -13,7 +13,7 @@ class CryptoRepository @Inject constructor(private val cryptoSource: CryptoSourc
 
     override suspend fun getCoins(): Flow<List<Crypto>> {
         return cryptoSource.getAllCoins().map { cryptoList ->
-            cryptoList.map { it.toDomain() }
+            cryptoList!!.map { it.toDomain() }
         }
     }
 }

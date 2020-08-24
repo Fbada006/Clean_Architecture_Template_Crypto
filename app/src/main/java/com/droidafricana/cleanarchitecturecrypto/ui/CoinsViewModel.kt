@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.droidafricana.cleanarchitecturecrypto.mappers.toUiModel
 import com.droidafricana.cleanarchitecturecrypto.models.CryptoUiModel
-import com.droidafricana.cleanarchitecturecrypto.utils.Error
 import com.droidafricana.cleanarchitecturecrypto.utils.Loading
 import com.droidafricana.cleanarchitecturecrypto.utils.Success
 import com.droidafricana.cleanarchitecturecrypto.utils.UiViewModel
@@ -27,12 +26,16 @@ class CoinsViewModel @ViewModelInject constructor(
         _uiState.value = Loading
         viewModelScope.launch(exceptionHandler) {
             getAllCoinsUseCase().collect {
-                if (it != null) {
-                    _cryptoList.value = it.map { crypto ->
-                        crypto.toUiModel()
-                    }
-                    _uiState.value = Success
-                } else _uiState.value = Error(Exception("Houston, we have a problem!"))
+                _cryptoList.value = it?.map { crypto ->
+                    crypto.toUiModel()
+                }
+                _uiState.value = Success
+//                if (it != null) {
+//                    _cryptoList.value = it.map { crypto ->
+//                        crypto.toUiModel()
+//                    }
+//                    _uiState.value = Success
+//                } else _uiState.value = Error(Exception("Houston, we have a problem!"))
             }
         }
     }

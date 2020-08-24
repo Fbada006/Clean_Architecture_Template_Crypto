@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class CryptoSource @Inject constructor(private val apiService: CryptoApiService) {
 
-    suspend fun getAllCoins(): Flow<List<CryptoEntity>> {
+    suspend fun getAllCoins(): Flow<List<CryptoEntity>?> {
         val response = apiService.getAllCoinsData()
         return flow { emit(response.cryptoList) }
     }

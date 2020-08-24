@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface CryptoApiService {
 
-    @GET("/list")
+    @GET("list")
     suspend fun getAllCoinsData(): CryptoResultEntity
 }
