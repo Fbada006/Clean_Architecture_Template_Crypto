@@ -37,6 +37,7 @@ class CoinsFragment : Fragment(R.layout.coins_fragment) {
 
     private fun observeCryptoList() {
         viewModel.cryptoList.observe(viewLifecycleOwner, {
+            Timber.e("List from API - $it")
             adapter.submitList(it)
         })
     }

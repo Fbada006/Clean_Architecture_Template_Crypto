@@ -1,6 +1,9 @@
 package com.droidafricana.cleanarchitecturecrypto.di
 
 import com.droidafricana.data.api.CryptoApiService
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -37,14 +40,22 @@ class CryptoApiModule {
 
     @Singleton
     @Provides
+    fun provideMoshi() = Moshi.Builder()
+        .add(KotlinJsonAdapterFactory())
+        .build()
+
+    @Singleton
+    @Provides
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
+        moshi: Moshi,
         @Named("baseUrl") baseUrl: String
     ): Retrofit {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(okHttpClient)
-            .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()
     }
 
