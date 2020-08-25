@@ -63,7 +63,8 @@ is set to run once a PR is opened
 #### To come
 
 The project will include the ROOM DB because that is also part of the common pattern in modern Android
-Development. This will also come with other tests but the available ones are enough for now. However,
+Development. The usage of Kotlin DSL would also be a nice addition.
+ This will also come with other tests but the available ones are enough for now. However,
 feel free to open a PR if you feel that the project has room for improvement
 
 ```
