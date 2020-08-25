@@ -3,12 +3,12 @@ package com.droidafricana.cleanarchitecturecrypto.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.droidafricana.cleanarchitecturecrypto.R
 import com.droidafricana.cleanarchitecturecrypto.models.CryptoUiModel
 import com.droidafricana.cleanarchitecturecrypto.ui.CryptoAdapter.CryptoUiModelViewHolder
+import com.droidafricana.cleanarchitecturecrypto.utils.CryptoUiModelDiffCallback
 import kotlinx.android.synthetic.main.crypto_item.view.*
 
 class CryptoAdapter :
@@ -37,15 +37,5 @@ class CryptoAdapter :
                 return CryptoUiModelViewHolder(view)
             }
         }
-    }
-}
-
-class CryptoUiModelDiffCallback : DiffUtil.ItemCallback<CryptoUiModel>() {
-    override fun areItemsTheSame(oldItem: CryptoUiModel, newItem: CryptoUiModel): Boolean {
-        return oldItem.id == newItem.id
-    }
-
-    override fun areContentsTheSame(oldItem: CryptoUiModel, newItem: CryptoUiModel): Boolean {
-        return oldItem == newItem
     }
 }
