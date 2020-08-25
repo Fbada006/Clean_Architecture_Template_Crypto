@@ -1,11 +1,11 @@
 ![Build Application](https://github.com/Fbada006/Clean_Architecture_Template_Crypto/workflows/Build%20Application/badge.svg)
 ![Run KtLint](https://github.com/Fbada006/Clean_Architecture_Template_Crypto/workflows/Run%20KtLint/badge.svg)
 # Clean_Architecture_Template_Crypto
+
 Don't you get tired of writing apps that parse data from the API from scratch all the time? This app 
 seeks to simplify this by providing a template that you can modify and use on the fly using clean 
 architecture. It gets data from the the [coingecko API](https://www.coingecko.com/en/api#explore-api) 
 and displays the cryptos using clean architecture and MVVM.
-
 
 ## Prerequisite
 
@@ -16,7 +16,6 @@ Gradle build system
 Kotlin
 
 You do not need an API key for this project
-
 
 ## TOC
 
