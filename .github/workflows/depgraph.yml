@@ -22,7 +22,7 @@ jobs:
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
-          git commit -m "Added license headers" || echo "No changes to commit"
+          git commit -m "Updated deps graph" || echo "No deps graph changes to commit"
       - name: Push
         uses: ad-m/github-push-action@master
         with:
