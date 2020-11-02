@@ -14,8 +14,6 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
-
-    apply from: file('gradle/projectDependencyGraph.gradle')
 }
 
 allprojects {
@@ -28,3 +26,5 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+apply from: file('gradle/projectDependencyGraph.gradle')
