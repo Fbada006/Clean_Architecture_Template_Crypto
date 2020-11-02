@@ -26,6 +26,6 @@ jobs:
       - name: Pull
         run: git config pull.rebase true && git pull origin ${GITHUB_HEAD_REF}
       - name: Push
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@${GITHUB_HEAD_REF}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
