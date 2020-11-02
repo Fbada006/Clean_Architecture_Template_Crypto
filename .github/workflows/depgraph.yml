@@ -24,7 +24,7 @@ jobs:
           git config --local user.name 'GitHub Action'
           git diff --quiet && git diff --staged --quiet || git commit -am 'Update dependency graph'
       - name: Pull
-        run: git config pull.rebase true && git pull origin ${GITHUB_REF##*/}
+        run: git config pull.rebase true && git pull origin ${GITHUB_HEAD_REF}
       - name: Push
         uses: ad-m/github-push-action@master
         with:
