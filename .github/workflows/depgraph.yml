@@ -23,12 +23,8 @@ jobs:
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
           git diff --quiet && git diff --staged --quiet || git commit -am 'Update dependency graph'
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
       - name: Pull
-        run: git config pull.ff true && git pull origin ${{ steps.extract_branch.outputs.branch }}
+        run: git config pull.rebase true && git pull origin ${GITHUB_REF##*/}
       - name: Push
         uses: ad-m/github-push-action@master
         with:
