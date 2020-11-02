@@ -1,9 +1,8 @@
 name: Generate deps graph
 
 on:
-  push:
-    branches:
-      - master
+  pull_request:
+    branches: [ master ]
 
 jobs:
   generate-dependency-graph:
